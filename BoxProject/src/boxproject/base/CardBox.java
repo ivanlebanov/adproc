@@ -39,7 +39,7 @@ public abstract class CardBox {
 		this.hasReinforcedCorners = hasReinforcedCorners;
                 this.grade = grade;
 	}
-	
+	public abstract String getName();
 	public abstract BigDecimal getPrice();
         public float getArea(){
 		return 2*(width*height  + width*length + height*length);

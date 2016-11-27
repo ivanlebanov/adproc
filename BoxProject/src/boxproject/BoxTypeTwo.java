@@ -29,4 +29,8 @@ public class BoxTypeTwo extends CardBox {
         return new BigDecimal( price );
     }
 
+    @Override
+    public  String getName(){
+        return "Box Type 2";
+    }
 }

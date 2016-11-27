@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import boxproject.base.CardBox;
+import boxproject.BoxProjectGUI;
 /**
  *
  * @author ivanlebanov
