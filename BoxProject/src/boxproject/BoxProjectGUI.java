@@ -7,8 +7,13 @@ package boxproject;
 
 import boxproject.base.CardBox;
 import java.awt.List;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListModel;
 
@@ -55,7 +60,6 @@ public class BoxProjectGUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        btnHelp = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLabel2 = new javax.swing.JLabel();
@@ -79,6 +83,11 @@ public class BoxProjectGUI extends javax.swing.JFrame {
         });
 
         btnClearGrade.setText("Clear");
+        btnClearGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearGradeActionPerformed(evt);
+            }
+        });
 
         ddGrade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
 
@@ -121,14 +130,9 @@ public class BoxProjectGUI extends javax.swing.JFrame {
 
         jLabel9.setText("FlexBox price quoting sytem - Enter order below");
 
-        btnHelp.setText("?");
-        btnHelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHelpActionPerformed(evt);
-            }
-        });
-
         jLabel10.setText("Size (m)");
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,10 +143,6 @@ public class BoxProjectGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                                .addComponent(btnHelp))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -157,7 +157,7 @@ public class BoxProjectGUI extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -166,40 +166,45 @@ public class BoxProjectGUI extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(20, 20, 20)
-                                        .addComponent(ddGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(ddGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jLabel10))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cbSealableTops, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbReinforcedCorners)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnClearGrade)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOrderAdd))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cmbReinforcedBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(183, 183, 183))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbSealableTops, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnClearGrade)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnOrderAdd))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbReinforcedCorners, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbReinforcedBottom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(61, 61, 61))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(btnHelp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -219,21 +224,14 @@ public class BoxProjectGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ddColour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(61, 61, 61))
-                            .addComponent(cmbReinforcedBottom, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(7, 7, 7)
-                        .addComponent(cmbReinforcedCorners))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel2)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
+                .addComponent(cmbReinforcedBottom)
+                .addGap(7, 7, 7)
+                .addComponent(cmbReinforcedCorners)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -262,9 +260,18 @@ public class BoxProjectGUI extends javax.swing.JFrame {
         lblTotalAmount.setText("----");
 
         btnRemoveOrder.setText("Remove");
-        btnRemoveOrder.setEnabled(false);
+        btnRemoveOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveOrderActionPerformed(evt);
+            }
+        });
 
         btnClearOrder.setText("Clear");
+        btnClearOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -321,7 +328,7 @@ public class BoxProjectGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -330,16 +337,17 @@ public class BoxProjectGUI extends javax.swing.JFrame {
     private void btnOrderAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderAddActionPerformed
         // TODO add your handling code here:
         double width,height, lenght;
-        boolean sealable, reinforcedCorners, reinforcedBottom, validInput;
+        boolean sealable, reinforcedCorners, reinforcedBottom, validInput, error;
         int colorNumber,quantity;
         String colors, grade;
-        
-        sealable = reinforcedCorners = reinforcedBottom = false;
+        String validation = "";
+        sealable = reinforcedCorners = reinforcedBottom = error = false;
         width = height = lenght = 0.0;
         colorNumber = quantity = 0;
         validInput = true;
         colors = "";
-        int gradeNumber = -1;
+        int gradeNumber = 0;
+     
         try {
             quantity = Integer.parseInt(txtQuantity.getText());
             width = Double.parseDouble(txtWidth.getText());
@@ -352,36 +360,49 @@ public class BoxProjectGUI extends javax.swing.JFrame {
             gradeNumber = Integer.parseInt(grade);
             colors = (String) ddColour.getSelectedItem();
         } catch (NumberFormatException e) {
-           jLabel2.setText("Input only numbers in the text fields.");
+            jLabel2.setText("<html>Input only numbers <br>in the text fields.");
             validInput = false;
         }
         if(validInput){
+            
+            if ( (width < 0.2) || (width > 3) || (height < 0.2) || (height > 3) || (lenght < 0.2) || (lenght > 3) ){
+                validation = "<html> Width, height and length should be <br> between 0.2 and 3 meters.";
+            }
+            if(quantity <= 0){
+                validation += " Quantity should be at least 1.";
+            }
+            jLabel2.setText(validation);
             if( colors.equals("1 colour") ){
                 colorNumber = 1;
             }else if(colors.equals("2 colours") ){
                 colorNumber = 2;
             }
-            
-            for (int i = 0; i < quantity; i++) {
-                CardBox box = BoxFactory.getBox((float) width, (float) height, (float) lenght,sealable,colorNumber,reinforcedBottom,reinforcedCorners, gradeNumber);
+            if(validation.equals("")){
+                for (int i = 0; i < quantity; i++) {
+                    CardBox box = BoxFactory.getBox((float) width, (float) height, (float) lenght,sealable,colorNumber,reinforcedBottom,reinforcedCorners, gradeNumber);
 
-                if(box != null){
-                  orderList.add(box);
-                  listModel.addElement(box.getName());
-                  lstOrder.setModel(listModel);
+                    if(box != null){
+                      orderList.add(box);
+                      listModel.addElement(box.getName());
+                      lstOrder.setModel(listModel);
 
-                }else{
-
-                }    
+                    }else{
+                       error = true; 
+                    }    
+                }
             }
+            if(error){
+                jLabel2.setText("<html>Sorry we do not have <br> the kind of box you want.");
+            }else{
+                if(validation.equals("")){
+                    jLabel2.setText("");
+                }
+            } 
+            calculateTotal();
+
         }
         
     }//GEN-LAST:event_btnOrderAddActionPerformed
-
-    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        // open help dialog
-        
-    }//GEN-LAST:event_btnHelpActionPerformed
 
     private void cmbReinforcedBottomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReinforcedBottomActionPerformed
         // TODO add your handling code here:
@@ -395,6 +416,50 @@ public class BoxProjectGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ddColourActionPerformed
 
+    private void btnClearGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearGradeActionPerformed
+        // TODO add your handling code here:
+        txtQuantity.setText("");
+        txtWidth.setText("");
+        txtHeight.setText("");
+        txtLength.setText("");
+        cmbReinforcedBottom.setSelected(false);
+        cmbReinforcedCorners.setSelected(false);
+        cbSealableTops.setSelected(false);
+        ddGrade.setSelectedItem("1");
+        ddColour.setSelectedItem("no colour");
+    }//GEN-LAST:event_btnClearGradeActionPerformed
+
+    private void btnRemoveOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveOrderActionPerformed
+        // TODO add your handling code here:
+         
+        int selectedIndex = lstOrder.getSelectedIndex();
+        if (selectedIndex != -1) {
+            listModel.remove(selectedIndex);
+            lstOrder.setModel(listModel);
+            orderList.remove(selectedIndex);
+        }else{
+            jLabel2.setText("Please select box to remove.");
+        }
+        calculateTotal();
+    }//GEN-LAST:event_btnRemoveOrderActionPerformed
+
+    private void btnClearOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearOrderActionPerformed
+        // TODO add your handling code here:
+
+            listModel.removeAllElements();
+            lstOrder.setModel(listModel);
+            orderList.clear();
+     
+        calculateTotal();
+    }//GEN-LAST:event_btnClearOrderActionPerformed
+    public void calculateTotal(){
+        BigDecimal total = new BigDecimal(0);
+            for(CardBox currentBox : orderList){
+                total = total.add(currentBox.getPrice());
+            }
+            total = total.setScale(2, RoundingMode.CEILING);
+            lblTotalAmount.setText(total.toString());
+    }
     /**
      * @param args the command line arguments
      */
@@ -435,7 +500,6 @@ public class BoxProjectGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClearGrade;
     private javax.swing.JButton btnClearOrder;
-    private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnOrderAdd;
     private javax.swing.JButton btnRemoveOrder;
     private javax.swing.JCheckBox cbSealableTops;
