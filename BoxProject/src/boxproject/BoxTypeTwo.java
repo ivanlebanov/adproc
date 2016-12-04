@@ -7,10 +7,7 @@ package boxproject;
 
 import java.math.BigDecimal;
 import boxproject.base.CardBox;
-/**
- *
- * @author ivanlebanov
- */
+
 public class BoxTypeTwo extends CardBox {
     
     public BoxTypeTwo(float width, float height, float length, boolean sealableTop, int grade) {

@@ -12,10 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-/**
- *
- * @author ivanlebanov
- */
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({boxproject.base.CardBoxTest.class})
 public class BaseSuite {

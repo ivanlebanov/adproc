@@ -5,10 +5,7 @@
  */
 package boxproject.base;
 
-/**
- *
- * @author ivanlebanov
- */
+
 
 import java.awt.List;
 import java.math.BigDecimal;

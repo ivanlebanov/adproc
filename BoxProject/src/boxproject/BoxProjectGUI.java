@@ -17,10 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListModel;
 
-/**
- *
- * @author sides
- */
 public class BoxProjectGUI extends javax.swing.JFrame {
 
     protected ArrayList<CardBox> orderList = new ArrayList<CardBox>();

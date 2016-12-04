@@ -12,10 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-/**
- *
- * @author ivanlebanov
- */
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({boxproject.BoxTypeThreeTest.class, boxproject.BoxTypeTwoTest.class, boxproject.BoxFactoryTest.class, boxproject.BoxTypeFourTest.class, boxproject.BoxTypeFiveTest.class, boxproject.base.BaseSuite.class, boxproject.BoxTypeOneTest.class})
 public class BoxprojectSuite {

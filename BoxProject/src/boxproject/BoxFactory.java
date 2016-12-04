@@ -5,10 +5,6 @@
  */
 package boxproject;
 
-/**
- *
- * @author ivanlebanov
- */
 import boxproject.base.CardBox;
 
 public class BoxFactory {

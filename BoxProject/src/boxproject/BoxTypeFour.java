@@ -5,10 +5,7 @@
  */
 package boxproject;
 
-/**
- *
- * @author ivanlebanov
- */
+
 
 import java.math.BigDecimal;
 import boxproject.base.CardBox;

@@ -5,10 +5,7 @@
  */
 package boxproject;
 
-/**
- *
- * @author ivanlebanov
- */
+
 import java.math.BigDecimal;
 import boxproject.base.CardBox;
 public class BoxTypeFive extends CardBox{

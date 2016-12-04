@@ -7,13 +7,8 @@ package boxproject;
 import java.awt.List;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import boxproject.base.CardBox;
-import boxproject.BoxProjectGUI;
-/**
- *
- * @author ivanlebanov
- */
+
 public class BoxProject {
 
     /**
