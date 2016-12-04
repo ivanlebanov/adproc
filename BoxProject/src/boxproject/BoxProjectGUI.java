@@ -511,8 +511,12 @@ public class BoxProjectGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
     public void calculateTotal(){
         BigDecimal total = new BigDecimal(0);
+        BigDecimal current = new BigDecimal(0);
             for(CardBox currentBox : orderList){
-                total = total.add(currentBox.getPrice());
+                current = new BigDecimal(0);
+                current = current.add(currentBox.getPrice());
+                current = current.setScale(2, RoundingMode.CEILING);
+                total = total.add(current);
             }
             total = total.setScale(2, RoundingMode.CEILING);
             lblTotalAmount.setText(total.toString());
